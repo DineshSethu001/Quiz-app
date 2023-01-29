@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./style.css" rel="stylesheet">
+    <title>To-do List</title>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>To-do List</h1>
+    </header>
+    <hr>
+    <main>
+        <form>
+            <input placeholder="Enter the pending work to do here" id="textBox">
+            <span id="addBtn" onclick="myList()">Add</span>
+        </form>
+        <ul id="ul_li">
+            <li>Tommorrow going to attend the interview</li>
+            <li>Buy grocery items</li>
+            <li>Pay current Bill</li>
+        </ul>
+    </main>
+    <script>
+        var get_list_tag=document.getElementsByTagName('li');
+        for(var i=0;i<get_list_tag.length;i++){
+            var span=document.createElement("span");
+            span.className="close";
+            var close=document.createTextNode("X");
+            span.appendChild(close);
+            get_list_tag[i].appendChild(span);
+        }
+        var closing=document.getElementsByClassName("close");
+        for(var i=0;i<closing.length;i++){
+                closing[i].onclick=function(){
+                    var d=this.parentElement;
+                    d.style.display="none";
+                }
+        }
+        function myList(){
+            var list=document.createElement("li");
+            var input_textBox=document.getElementById("textBox").value;
+            var new_node=document.createTextNode(input_textBox);
+            list.appendChild(new_node);
+            if(input_textBox == "")
+                alert("Input Field should not be Empty")
+            else
+                document.getElementById("ul_li").appendChild(list);
+
+            for(var i=0;i<get_list_tag.length;i++){
+            var span=document.createElement("span");
+            span.className="close";
+            var close=document.createTextNode("X");
+            span.appendChild(close);
+            get_list_tag[i].appendChild(span);
+        }
+        var closing=document.getElementsByClassName("close");
+        for(var i=0;i<closing.length;i++){
+                closing[i].onclick=function(){
+                    var d=this.parentElement;
+                    d.style.display="none";
+                }
+            }
+        }
+    </script>
+    
+</body>
+</html>
